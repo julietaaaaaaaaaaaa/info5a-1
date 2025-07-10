@@ -34,43 +34,50 @@ export default function CotacaoForm() {
   };
 
   return (
-    <div style={{ padding: "2rem", fontFamily: "Arial" }}>
-      <h2>Buscar Cotação USD/BRL</h2>
+    <div className="min-h-screen p-8 text-foreground bg-background">
+      <h2 className="text-2xl font-semibold mb-6">Buscar Cotação USD/BRL</h2>
 
-      <div style={{ marginBottom: "1rem" }}>
-        <label>
-          Data Início:
+      <div className="flex flex-col gap-4 max-w-sm">
+        <div>
+          <label htmlFor="dataInicio" className="block mb-1 font-medium">
+            Data Início:
+          </label>
           <input
             type="date"
+            id="dataInicio"
             value={dataInicio}
             onChange={(e) => setDataInicio(e.target.value)}
-            style={{ marginLeft: "1rem" }}
+            className="w-full p-2 border rounded-md bg-white text-black dark:bg-gray-900 dark:text-white"
           />
-        </label>
-      </div>
+        </div>
 
-      <div style={{ marginBottom: "1rem" }}>
-        <label>
-          Data Fim:
+        <div>
+          <label htmlFor="dataFim" className="block mb-1 font-medium">
+            Data Fim:
+          </label>
           <input
             type="date"
+            id="dataFim"
             value={dataFim}
             onChange={(e) => setDataFim(e.target.value)}
-            style={{ marginLeft: "1rem" }}
+            className="w-full p-2 border rounded-md bg-white text-black dark:bg-gray-900 dark:text-white"
           />
-        </label>
+        </div>
+
+        <button
+          onClick={buscarCotacoes}
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+        >
+          Buscar
+        </button>
       </div>
 
-      <button onClick={buscarCotacoes} style={{ padding: "0.5rem 1rem" }}>
-        Buscar
-      </button>
-
-      {erro && <p style={{ color: "red" }}>{erro}</p>}
+      {erro && <p className="text-red-500 mt-4">{erro}</p>}
 
       {dados && (
-        <div style={{ marginTop: "2rem" }}>
-          <h3>Resultados:</h3>
-          <ul>
+        <div className="mt-8">
+          <h3 className="text-xl font-bold mb-2">Resultados:</h3>
+          <ul className="space-y-2">
             {dados.map((item) => (
               <li key={item.timestamp}>
                 <strong>{new Date(item.timestamp * 1000).toLocaleDateString()}:</strong>{' '}
