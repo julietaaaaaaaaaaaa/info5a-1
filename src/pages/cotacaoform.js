@@ -34,50 +34,37 @@ export default function CotacaoForm() {
   };
 
   return (
-    <div className="min-h-screen p-8 text-foreground bg-background">
-      <h2 className="text-2xl font-semibold mb-6">Buscar Cotação USD/BRL</h2>
+    <div className="form-container">
+      <h2>Buscar Cotação USD/BRL</h2>
 
-      <div className="flex flex-col gap-4 max-w-sm">
-        <div>
-          <label htmlFor="dataInicio" className="block mb-1 font-medium">
-            Data Início:
-          </label>
-          <input
-            type="date"
-            id="dataInicio"
-            value={dataInicio}
-            onChange={(e) => setDataInicio(e.target.value)}
-            className="w-full p-2 border rounded-md bg-white text-black dark:bg-gray-900 dark:text-white"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="dataFim" className="block mb-1 font-medium">
-            Data Fim:
-          </label>
-          <input
-            type="date"
-            id="dataFim"
-            value={dataFim}
-            onChange={(e) => setDataFim(e.target.value)}
-            className="w-full p-2 border rounded-md bg-white text-black dark:bg-gray-900 dark:text-white"
-          />
-        </div>
-
-        <button
-          onClick={buscarCotacoes}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-        >
-          Buscar
-        </button>
+      <div className="form-group">
+        <label htmlFor="dataInicio">Data Início:</label>
+        <input
+          type="date"
+          id="dataInicio"
+          value={dataInicio}
+          onChange={(e) => setDataInicio(e.target.value)}
+        />
       </div>
 
-      {erro && <p className="text-red-500 mt-4">{erro}</p>}
+      <div className="form-group">
+        <label htmlFor="dataFim">Data Fim:</label>
+        <input
+          type="date"
+          id="dataFim"
+          value={dataFim}
+          onChange={(e) => setDataFim(e.target.value)}
+        />
+      </div>
+
+      <button onClick={buscarCotacoes}>Buscar</button>
+
+      {erro && <p className="erro">{erro}</p>}
 
       {dados && (
-        <div className="mt-8">
-          <h3 className="text-xl font-bold mb-2">Resultados:</h3>
-          <ul className="space-y-2">
+        <div className="resultados">
+          <h3>Resultados:</h3>
+          <ul>
             {dados.map((item) => (
               <li key={item.timestamp}>
                 <strong>{new Date(item.timestamp * 1000).toLocaleDateString()}:</strong>{' '}
