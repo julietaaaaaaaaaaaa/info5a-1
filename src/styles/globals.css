@@ -1,6 +1,6 @@
 body {
-  background-color: #fff0f5; /* rosa bem claro */
-  color: #8b1c62; /* rosa escuro suave para o texto */
+  background-color: #f0f4f8; /* azul bem claro */
+  color: #0d1117; /* quase preto */
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
@@ -10,16 +10,16 @@ body {
   max-width: 500px;
   margin: 0 auto;
   margin-top: 80px;
-  background-color: #ffe4ec; /* fundo rosa claro */
+  background-color: #ffffff; /* fundo branco */
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); /* sombra leve e sutil */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra leve */
 }
 
 .form-container h2 {
   text-align: center;
   margin-bottom: 1.5rem;
-  color: #c71585; /* rosa médio para o título */
+  color: #003366; /* azul escuro */
 }
 
 .form-group {
@@ -30,23 +30,31 @@ label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: bold;
-  color: #a0527d;
+  color: #0d47a1; /* azul forte */
 }
 
 input[type="date"] {
   width: 100%;
   padding: 0.5rem;
   border-radius: 6px;
-  border: 1px solid #dbaecb;
-  background-color: #fff8fb;
-  color: #5e2c46;
+  border: 1px solid #90caf9; /* azul claro */
+  background-color: #e3f2fd; /* azul bem claro */
+  color: #0d1117;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: none;
   cursor: pointer;
 }
 
 button {
   width: 100%;
   padding: 0.75rem;
-  background-color: #f48fb1;
+  background-color: #1976d2; /* azul médio */
   border: none;
   color: white;
   font-size: 1rem;
@@ -57,11 +65,11 @@ button {
 }
 
 button:hover {
-  background-color: #ec407a;
+  background-color: #1565c0;
 }
 
 .erro {
-  color: #b00020;
+  color: #d32f2f;
   margin-top: 1rem;
 }
 
@@ -71,7 +79,7 @@ button:hover {
 
 .resultados h3 {
   margin-bottom: 0.5rem;
-  color: #ad1457;
+  color: #003366;
 }
 
 .resultados li {
